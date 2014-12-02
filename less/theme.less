@@ -5,7 +5,7 @@
 body {
 	font-family: @body-font;
 	font-size: @normal;
-	line-height: 24px;
+	line-height: 27px;
 	color: @grey;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 ul,
 ol {
-	margin: 15px 0 30px 0;
+	margin: 15px 0 30px 10px;
 	padding: 0 0 0 20px;
 	li {
 		margin: 0 0 8px 0;
@@ -24,14 +24,9 @@ ol {
 		list-style: none;
 		margin: 0 0 20px 0;
 		padding: 0;
-		li { margin: 4px 0 8px 0; }
+		li { margin: 6px 0 10px 0; }
 		.fa {
-			text-align: center;
-			width: 28px;
-			margin-right: 12px;
-		}
-		&.cta-quote {
-			font-size: @big;
+			width: 31px;
 		}
 	}
 }
@@ -68,17 +63,19 @@ a:active {
 }
 .btn-primary {
 	font-size: @normal;
-	font-weight: 600;
+	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	text-shadow: 0 -1px 0 @brand-dk;
+	text-shadow: 0 1px 0 @brand-dk;
 	background: @brand;
 	box-shadow: 0 3px 0 0 @brand-dk;
 	border: none;
 	border-radius: 30px;
-	margin: 5px 10px 5px 0;
+	margin: 10px 10px 10px 0;
 	padding: 8px 22px;
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		background: @brand-dk;
 		box-shadow: 0 3px 0 0 black;
 	}
@@ -88,76 +85,71 @@ a:active {
 	}
 }
 // Highlight Color Customization
-::-moz-selection {
-    text-shadow: none;
-    background: @brand;
-}
-
 ::selection {
     text-shadow: none;
-    background: @brand;
-}
-
-img::selection {
-    background: transparent;
-}
-
-img::-moz-selection {
-    background: transparent;
-}
-
-body {
-    webkit-tap-highlight-color: @brand;
+    color: @brand-dk;
+    background: @brand-bg;
 }
 
 // Custom Navigation Bar
 .navbar-default {
-	background-color: @grey-dk;
-	border-color: transparent;
-	.navbar-collapse {
-		border-color: fade(white, 2%);
-	}
+  .navbar-brand {
+  	.2x('../img/logo/logo-easyclad.png', "no-repeat", 181px, 27px);
+  	background-size: 80% !important;
+  	width: 181px;
+  	height: 27px;
+  	margin: 14px 0 0 15px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+		&:hover {
+			opacity: 0.85;
+		}
+  }
 	.navbar-toggle {
-		background-color: @brand;
-		border-color: @brand;
+		background-color: @brand-lt;
+		border-color: @brand-lt;
 		.icon-bar {
 			background-color: white;
 		}
 		&:hover,
 		&:focus {
 			background-color: @brand;
+			border-color: @brand;
 		}
 	}
-    .nav {
-    	li {
-    		a {
-	    		font-weight: 600;
-    			letter-spacing: 1px;
-    			color: @link;
-    			padding: 10px 20px;
-    			&:hover,
-    			&:focus {
-    				color: @link-hover;
-    			}
-    		}
-    	}
-    }
+  .nav {
+  	li {
+  		a {
+    		font-weight: 700;
+  			letter-spacing: 1px;
+  			color: @link-hover;
+  			padding: 10px 20px;
+  			&:hover,
+  			&:focus {
+  				color: @link;
+					border-radius: 30px;
+					background: @brand-bg;
+  			}
+  		}
+  	}
+  }
 	.navbar-nav>.active>a {
-		color: @brand-dk;
+		color: @brand;
 		background: @brand-bg;
+		border-radius: 30px;
 	}
 	.navbar-nav>.active>a:hover,
 	.navbar-nav>.active>a:focus {
-		cursor: default;
 		color: @brand;
 		background: @brand-bg;
+		border-radius: 30px;
  	}
 }
 
 @media(min-width:768px) {
   .navbar-default {
-  	background-color: #fff;
-  	background-color: rgba(255,255,255,0.85);
+  	background-color: rgba(255,255,255,0.88);
   	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   	border-bottom: 1px solid #fff;
     padding: 16px 0 9px 0;
@@ -165,17 +157,9 @@ body {
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
     .navbar-brand {
-    	.2x('../img/logo-easyclad.png', "no-repeat", 181px, 27px);
+    	.2x('../img/logo/logo-easyclad.png', "no-repeat", 181px, 27px);
     	background-size: 100% !important;
-    	width: 181px;
-    	height: 27px;
-    	margin: 8px 0 0 0;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s;
-			&:hover {
-				opacity: 0.85;
-			}
+	  	margin-top: 6px;
     }
 		.navbar-nav>.active>a {
 			border-radius: 30px;
@@ -184,7 +168,8 @@ body {
   .navbar-default.navbar-shrink {
     padding: 6px 0 0 0;
 		.navbar-brand {
-    	background-size: 90% !important;
+    	background-size: 80% !important;
+ 	  	margin-top: 10px;
     }
 	}
 }
@@ -192,41 +177,59 @@ body {
 // hero
 header {
 	color: white;
-	.2x('../img/hero-bg.jpg', "no-repeat", 425px, 253px);
+	.2x('../img/hero/hero-bg.jpg', "no-repeat", 425px, 253px);
 	background-size: cover !important;
-	background-position: 50% 18px;
+	background-position: 50% 0px;
+	border-bottom: 2px solid @brand;
 	.intro-text {
+		text-align: center;
 		padding-top: 100px;
 		padding-bottom: 50px;
 		h2, h3 {
 			font-family: @headline-font;
 			letter-spacing: 1px;
 			color: @brand;
-			background: rgba(255,255,255,0.5);
+			background: rgba(255,255,255,0.72);
 			display: inline-block;
-			padding: 1px 4px 3px 4px;
 		}
 		h2 {
-			font-size: 52px;
-			line-height: 60px;
+			font-family: @headline-font;
+			font-size: 48px;
+			line-height: 54px;
 			font-weight: 400;
 			font-style: italic;
-			margin-bottom: 10px;
+			margin-bottom: 18px;
+			padding: 0px 8px 14px 8px;
 		}
 		h3 {
-			font-size: 30px;
+			font-size: 24px;
 			line-height: 30px;
 			color: @grey-dk;
 			margin: 0 0 30px 0;
+			padding: 0px 6px 6px 6px;
 		}
 	}
 }
 
 @media(min-width:768px) {
 	header {
+		min-height: 700px;
+	  -webkit-animation: fadein 3s; /* Safari and Chrome */
+	   -moz-animation: fadein 3s; /* Firefox */
+	    -ms-animation: fadein 3s; /* Internet Explorer */
+	     -o-animation: fadein 3s; /* Opera */
+	        animation: fadein 3s;
 		.intro-text {
-			padding-top: 250px;
+			padding-top: 260px;
 			padding-bottom: 200px;
+			h2 {
+				font-size: 68px;
+				line-height: 74px;
+			}
+			h3 {
+				font-size: 34px;
+				line-height: 40px;
+			}
 		}
 	}
 }
@@ -234,31 +237,43 @@ header {
 // Shared section styles
 section {
   padding: 20px 0;
+  h2.section-heading {
+	  color: @grey-dk;
+		margin: 0 0 0 0;
+  }
   h3.section-subheading {
 		font-size: @big;
-		line-height: 25px;
+		line-height: 26px;
 		font-family: @headline-font;
-		//text-transform: none;
-		//font-style: italic;
 		font-weight: 400;
-		margin-bottom: 30px;
-  }
-  h2 {
-		background: @brand-bg;
+		margin: 40px 0 20px 0;
+		&.sidebar-widget {
+			color: @grey-dk;
+			border-bottom: 2px solid @grey-lt;
+			padding-bottom: 10px;
+		}
   }
   h4 {
-	  background: #fff;
-  }
-  h2, h4 {
+	  font-size: 20px;
 	  color: @grey-dk;
-	  display: inline-block;
-		margin: 20px 0;
+		margin: 40px 0 20px 0;
+  }
+  img {
+	  margin-top: 12px;
+	  margin-bottom: 24px;
   }
 }
 
 @media(min-width:768px) {
 	section {
 		padding: 60px 0;
+		.main-col-wrap {
+			margin: 0 0 50px 0;
+			padding-right: 60px;
+		}
+		&#about {
+			padding: 30px 0 50px 0;
+		}
 	}
 }
 
@@ -271,8 +286,11 @@ section#contact {
 	border-bottom: 2px solid @grey-lt;
 }
 
-// Clients Aside
+// Products section
+section#products {
+}
 
+// Clients Aside
 aside.clients {
 	img {
 		margin: 50px auto;
@@ -304,6 +322,9 @@ footer {
 	background-color: @grey-bg;
 	border-top: 2px solid @grey-lt;
 	padding: 100px 0;
+	.row > div {
+		margin-bottom: 20px;
+	}
 	p {
 		margin: 0;
 		em {
@@ -401,4 +422,36 @@ footer {
             }
         }
     }
+}
+
+
+
+// css3 animations for header
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
