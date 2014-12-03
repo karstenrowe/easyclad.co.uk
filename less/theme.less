@@ -123,11 +123,11 @@ a:active {
   		a {
     		font-weight: 700;
   			letter-spacing: 1px;
-  			color: @link-hover;
+  			color: @link;
   			padding: 10px 20px;
   			&:hover,
   			&:focus {
-  				color: @link;
+  				color: @brand-dk;
 					border-radius: 30px;
 					background: @brand-bg;
   			}
@@ -135,7 +135,7 @@ a:active {
   	}
   }
 	.navbar-nav>.active>a {
-		color: @brand;
+		color: @brand-dk;
 		background: @brand-bg;
 		border-radius: 30px;
 	}
@@ -177,19 +177,28 @@ a:active {
 // hero
 header {
 	color: white;
+/*
 	.2x('../img/hero/hero-bg.jpg', "no-repeat", 425px, 253px);
 	background-size: cover !important;
 	background-position: 50% 0px;
+*/
 	border-bottom: 2px solid @brand;
+	.carousel {
+		width: 100%;
+		.slide-img {
+			width: 100%;
+		}
+	}
 	.intro-text {
-		text-align: center;
-		padding-top: 100px;
-		padding-bottom: 50px;
+		position: absolute;
+		top: 160px;
+		text-align: left;
+		z-index: 2;
 		h2, h3 {
 			font-family: @headline-font;
 			letter-spacing: 1px;
 			color: @brand;
-			background: rgba(255,255,255,0.72);
+			background: rgba(255,255,255,0.85);
 			display: inline-block;
 		}
 		h2 {
@@ -213,15 +222,12 @@ header {
 
 @media(min-width:768px) {
 	header {
-		min-height: 700px;
 	  -webkit-animation: fadein 3s; /* Safari and Chrome */
 	   -moz-animation: fadein 3s; /* Firefox */
 	    -ms-animation: fadein 3s; /* Internet Explorer */
 	     -o-animation: fadein 3s; /* Opera */
 	        animation: fadein 3s;
 		.intro-text {
-			padding-top: 260px;
-			padding-bottom: 200px;
 			h2 {
 				font-size: 68px;
 				line-height: 74px;
@@ -288,6 +294,11 @@ section#contact {
 
 // Products section
 section#products {
+	img {
+		&:hover {
+			opacity: 0.85;
+		}
+	}
 }
 
 // Clients Aside
