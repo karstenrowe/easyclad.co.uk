@@ -13,6 +13,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	letter-spacing: 1px;
 }
+h3 {
+	margin: 50px 0 20px 0;
+}
 ul,
 ol {
 	margin: 15px 0 30px 10px;
@@ -44,6 +47,7 @@ a.active {
 	outline: none;
 }
 a {
+	cursor: pointer;
 	color: @link;
 }
 a:hover {
@@ -71,7 +75,7 @@ a:active {
 	box-shadow: 0 3px 0 0 @brand-dk;
 	border: none;
 	border-radius: 30px;
-	margin: 10px 10px 10px 0;
+	margin: 10px 10px 20px 0;
 	padding: 8px 22px;
 	&:hover,
 	&:active,
@@ -84,6 +88,29 @@ a:active {
 		padding: 14px 40px;
 	}
 }
+// Table
+body table {
+	width: 100%;
+	margin: 15px 0 25px 0;
+	tr {
+		border-bottom: 1px dotted @grey-lt;
+		margin-bottom: 10px;
+		td {
+			padding: 14px 0;
+			&:first-child {
+				font-weight: bold;
+			}
+		}
+	}
+}
+// Blockquote
+blockquote {
+	font-style: italic;
+}
+cite {
+	font-style: normal;
+}
+
 // Highlight Color Customization
 ::selection {
     text-shadow: none;
@@ -157,7 +184,6 @@ a:active {
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
     .navbar-brand {
-    	.2x('../img/logo/logo-easyclad.png', "no-repeat", 181px, 27px);
     	background-size: 100% !important;
 	  	margin-top: 6px;
     }
@@ -177,23 +203,38 @@ a:active {
 // hero
 header {
 	color: white;
-/*
-	.2x('../img/hero/hero-bg.jpg', "no-repeat", 425px, 253px);
-	background-size: cover !important;
-	background-position: 50% 0px;
-*/
 	border-bottom: 2px solid @brand;
+	//display: none;
 	.carousel {
 		width: 100%;
 		.slide-img {
 			width: 100%;
 		}
+		.carousel-control {
+			color: @brand;
+			&:focus {
+				background: none;
+				opacity: 0.5;
+			}
+			.fa {
+				font-size: 36px;
+				position: absolute;
+				top: 50%;
+				text-shadow: none;
+			}
+			&.left .fa {
+				left: 12px;
+			}
+			&.right .fa {
+				right: 12px;
+			}
+		}
+	}
+	.container {
+		position: relative;
 	}
 	.intro-text {
-		position: absolute;
-		top: 160px;
-		text-align: left;
-		z-index: 2;
+		text-align: center;
 		h2, h3 {
 			font-family: @headline-font;
 			letter-spacing: 1px;
@@ -222,12 +263,16 @@ header {
 
 @media(min-width:768px) {
 	header {
+    display: block;
 	  -webkit-animation: fadein 3s; /* Safari and Chrome */
 	   -moz-animation: fadein 3s; /* Firefox */
 	    -ms-animation: fadein 3s; /* Internet Explorer */
 	     -o-animation: fadein 3s; /* Opera */
 	        animation: fadein 3s;
 		.intro-text {
+			position: absolute;
+			top: -360px;
+			text-align: left;
 			h2 {
 				font-size: 68px;
 				line-height: 74px;
@@ -376,10 +421,13 @@ footer {
 	    border: none;
 	    min-height: 100%;
 	    padding: 100px 0;
-	    text-align: center;
 		h2 {
+	    	font-size: 50px;
+				color: @grey-dk;
 	    	margin-bottom: 15px;
-	    	font-size: 3em;
+		}
+		h3 {
+			color: @grey-dk;
 		}
 		p {
 			margin-bottom: 30px;
@@ -389,10 +437,6 @@ footer {
 			font-family: @headline-font;
 			font-style: italic;
 			font-size: 16px;
-		}
-		ul.list-inline {
-			margin-bottom: 30px;
-			margin-top: 0;
 		}
 		img {
 			margin-bottom: 30px;
