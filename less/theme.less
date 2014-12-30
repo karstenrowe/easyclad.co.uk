@@ -18,7 +18,7 @@ h3 {
 }
 ul,
 ol {
-	margin: 15px 0 30px 10px;
+	margin: 15px 0 30px 0;
 	padding: 0 0 0 20px;
 	li {
 		margin: 0 0 8px 0;
@@ -90,6 +90,7 @@ a:active {
 }
 // Table
 body table {
+	font-size: @small;
 	width: 100%;
 	margin: 15px 0 25px 0;
 	tr {
@@ -100,15 +101,32 @@ body table {
 			&:first-child {
 				font-weight: bold;
 			}
+			span {
+				font-size: @tiny;
+				margin-right: 6px;
+			}
 		}
+	}
+	th {
+		font-size: @tiny;
+		font-weight: normal;
+		color: @grey;
 	}
 }
 // Blockquote
 blockquote {
 	font-style: italic;
+	background-color: @brand-bg;
+	border-color: @brand;
 }
 cite {
 	font-style: normal;
+	color: @grey-dk;
+	span.company-name {
+		font-size: @small;
+		color: @grey;
+		margin: 0 7px;
+	}
 }
 
 // Highlight Color Customization
@@ -151,11 +169,11 @@ cite {
     		font-weight: 700;
   			letter-spacing: 1px;
   			color: @link;
+				border-radius: 30px;
   			padding: 10px 20px;
   			&:hover,
   			&:focus {
   				color: @brand-dk;
-					border-radius: 30px;
 					background: @brand-bg;
   			}
   		}
@@ -202,36 +220,34 @@ cite {
 
 // hero
 header {
-	color: white;
-	border-bottom: 2px solid @brand;
-	//display: none;
+	border-bottom: 2px solid @grey;
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+	-moz-animation: fadein 3s; /* Firefox */
+	-ms-animation: fadein 3s; /* Internet Explorer */
+	-o-animation: fadein 3s; /* Opera */
+	animation: fadein 3s;
+
 	.carousel {
-		width: 100%;
 		.slide-img {
 			width: 100%;
 		}
 		.carousel-control {
+			text-shadow: none;
 			color: @brand;
+			background: none;
+			top: 105px;
+			bottom: auto;
+			width: 60px;
 			&:focus {
-				background: none;
 				opacity: 0.5;
 			}
+			&:hover {
+				opacity: 1;
+			}
 			.fa {
-				font-size: 36px;
-				position: absolute;
-				top: 50%;
-				text-shadow: none;
-			}
-			&.left .fa {
-				left: 12px;
-			}
-			&.right .fa {
-				right: 12px;
+				font-size: 42px;
 			}
 		}
-	}
-	.container {
-		position: relative;
 	}
 	.intro-text {
 		text-align: center;
@@ -248,42 +264,72 @@ header {
 			line-height: 54px;
 			font-weight: 400;
 			font-style: italic;
-			margin-bottom: 18px;
+			margin-bottom: 10px;
 			padding: 0px 8px 14px 8px;
 		}
 		h3 {
 			font-size: 24px;
 			line-height: 30px;
 			color: @grey-dk;
-			margin: 0 0 30px 0;
+			margin: 0 0 20px 0;
 			padding: 0px 6px 6px 6px;
+		}
+	}
+	.btn-wrap {
+		margin-bottom: 20px;
+	}
+	ul.cta-list {
+		text-align: center;
+		li {
+			font-weight: bold;
+			color: @grey-dk;
+			display: inline-block;
+			padding: 0 3px;
+			background-color: rgba(255,255,255,0.8);
+			margin-right: 5px;
 		}
 	}
 }
 
 @media(min-width:768px) {
 	header {
-    display: block;
-	  -webkit-animation: fadein 3s; /* Safari and Chrome */
-	   -moz-animation: fadein 3s; /* Firefox */
-	    -ms-animation: fadein 3s; /* Internet Explorer */
-	     -o-animation: fadein 3s; /* Opera */
-	        animation: fadein 3s;
-		.intro-text {
-			position: absolute;
-			top: -360px;
-			text-align: left;
-			h2 {
-				font-size: 68px;
-				line-height: 74px;
-			}
-			h3 {
-				font-size: 34px;
-				line-height: 40px;
+		.carousel {
+			.carousel-control {
+				top: 220px;
 			}
 		}
 	}
 }
+
+@media(min-width:980px) {
+	header {
+		.carousel {
+			.carousel-control { top: 245px; }
+		}
+		.intro-text {
+			position: absolute;
+			top: 170px;
+			text-align: left;
+			h2 {
+				font-size: 62px;
+				line-height: 74px;
+			}
+			h3 {
+				font-size: 30px;
+				line-height: 40px;
+			}
+		}
+		.btn-wrap {
+			float: left;
+		}
+		ul.cta-list {
+			text-align: left;
+			float: left;
+			margin: 20px 0 0 10px;
+		}
+	}
+}
+
 
 // Shared section styles
 section {
@@ -307,29 +353,40 @@ section {
   h4 {
 	  font-size: 20px;
 	  color: @grey-dk;
-		margin: 40px 0 20px 0;
+		margin: 34px 0 18px 0;
+		span {
+			font-size: @small;
+		}
   }
   img {
 	  margin-top: 12px;
 	  margin-bottom: 24px;
+	  &.img-centered {
+		  margin-left: auto;
+		  margin-right: auto;
+	  }
   }
 }
 
 @media(min-width:768px) {
 	section {
 		padding: 60px 0;
-		.main-col-wrap {
+		.main-col-wrap { // add more spacing inbetween products
 			margin: 0 0 50px 0;
-			padding-right: 60px;
+			padding-right: 100px;
 		}
 		&#about {
 			padding: 30px 0 50px 0;
+		}
+		&.casestudy-photos,
+		&.partner-logos {
+			padding: 30px 0;
 		}
 	}
 }
 
 // Zebra striped sections
-section#about,
+section#products,
 section#color-range,
 section#contact {
 	background: @grey-bg;
@@ -337,40 +394,145 @@ section#contact {
 	border-bottom: 2px solid @grey-lt;
 }
 
+// About section
+section#about {
+	ul.depot-locations {
+		font-size: @small;
+  	.2x('../img/artwork/map-depot-locations.png', "no-repeat");
+  	background-size: 50%;
+  	background-position: 95% 95%;
+  	li {
+	  	margin-bottom: 5px;
+  	}
+	}
+}
+
 // Products section
 section#products {
+	border-top:  2px solid @grey-lt;
 	img {
+		opacity: 0.95;
+		margin-top: 50px;
 		&:hover {
-			opacity: 0.85;
+			opacity: 1;
 		}
 	}
 }
 
-// Clients Aside
-aside.clients {
+// Case study photo sections
+section#photo-examples {
 	img {
-		margin: 50px auto;
+		margin: 20px auto;
+	}
+}
+
+// Color range section
+section#color-range {
+	border-top: 2px solid @grey-lt;
+	.row {
+		margin-top: 20px;
+		label {
+			font-size: @tiny;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
+			position: absolute;
+			left: 25px;
+			bottom: 0;
+		}
+		&.color-range-vivid {
+			label {
+				color: #fff;
+			}
+		}
+		&.color-range-pastel {
+			label {
+				color: @grey;
+			}
+		}
+	}
+	.color-tile {
+		background-color: @grey-bg;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		width: 100%;
+		height: 100px;
+		box-sizing: border-box;
+		&.vivid-purple {
+			background-color: #8d1c58;
+		}
+		&.vivid-pink {
+			background-color: #ed1260;
+		}
+		&.vivid-red {
+			background-color: #9e1c20;
+		}
+		&.vivid-orange {
+			background-color: #f36c21;
+		}
+		&.vivid-olive {
+			background-color: #bdc197;
+		}
+		&.vivid-green {
+			background-color: #dce589;
+		}
+		&.vivid-blue {
+			background-color: #8db0dd
+		}
+		&.vivid-black {
+			background-color: #101c25;
+		}
+		&.vivid-steel {
+			background-color: #526671;
+		}
+		&.vivid-lime {
+			background-color: #d1df43;
+		}
+		&.vivid-white {
+			background-color: #ffffff;
+			border: 1px solid @grey-lt;
+			label { color: @grey; }
+		}
+		// pastels
+		&.oyster {
+			background-color: #fffef4;
+		}
+		&.green {
+			background-color: #c7e7de;
+		}
+		&.cream {
+			background-color: #fcfacf;
+		}
+		&.mint {
+			background-color: #c7e7de;
+		}
+		&.blue {
+			background-color: #bfe2ec;
+		}
+		&.grey {
+			background-color: #dddedf;
+		}
+		&.linen {
+			background-color: #f5f6f7;
+		}
+		&.cesco {
+			background-color: #eff3f6;
+		}
+		&.seafoam {
+			background-color: #ddf0ea;
+		}
+		&.fawn {
+			background-color: #e0c7ae;
+		}
+		&.satin-white {
+			background-color: #ffffff;
+			border: 1px solid @grey-lt;
+		}
 	}
 }
 
 // Contact Section
 section#contact {
-	.form-group {
-		margin-bottom: 25px;
-		input,
-		textarea {
-			padding: 20px;
-		}
-		input.form-control {
-			height: auto;
-		}
-		textarea.form-control {
-			height: 236px;
-		}
-	}
-	.form-control:focus {
-		box-shadow: none;
-	}
+
 }
 
 // Footer
@@ -414,13 +576,16 @@ footer {
 
 .product-modal {
 	.modal-content {
-	    border-radius: 0;
-	    background-clip: border-box;
-	    -webkit-box-shadow: none;
-	    box-shadow: none;
-	    border: none;
-	    min-height: 100%;
-	    padding: 100px 0;
+    border-radius: 0;
+    background-clip: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    min-height: 100%;
+    padding: 100px 0;
+		.modal-body {
+			padding: 15px 0;
+		}
 		h2 {
 	    	font-size: 50px;
 				color: @grey-dk;
@@ -429,8 +594,8 @@ footer {
 		h3 {
 			color: @grey-dk;
 		}
-		p {
-			margin-bottom: 30px;
+		h4 {
+			margin-top: 12px;
 		}
 		p.item-intro {
 			margin: 20px 0 30px;
@@ -438,7 +603,20 @@ footer {
 			font-style: italic;
 			font-size: 16px;
 		}
+		p.product-fire-rating {
+			font-size: @small;
+			line-height: 22px;
+		}
+		p.accessory-description {
+			font-size: @small;
+			line-height: 22px;
+			margin-bottom: 5px;
+		}
+		p em { // price
+			background: none;
+		}
 		img {
+			margin-top: 12px;
 			margin-bottom: 30px;
 		}
 	}
