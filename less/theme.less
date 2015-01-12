@@ -131,25 +131,35 @@ cite {
 
 // Highlight Color Customization
 ::selection {
-    text-shadow: none;
-    color: @brand-dk;
-    background: @brand-bg;
+  text-shadow: none;
+  color: @brand-dk;
+  background: @brand-bg;
 }
 
 // Custom Navigation Bar
 .navbar-default {
+	background-color: rgba(255,255,255,0.88);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	border-bottom: 1px solid #fff;
+  -webkit-transition: padding 0.3s;
+  -moz-transition: padding 0.3s;
+  transition: padding 0.3s;
+
   .navbar-brand {
   	.2x('../img/logo/logo-easyclad.png', "no-repeat", 181px, 27px);
   	background-size: 80% !important;
   	width: 181px;
   	height: 27px;
-  	margin: 14px 0 0 15px;
+  	margin: 14px 16px 0 0;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 		&:hover {
 			opacity: 0.85;
 		}
+  }
+  .brand-tagline {
+	  display: none;
   }
 	.navbar-toggle {
 		background-color: @brand-lt;
@@ -166,11 +176,12 @@ cite {
   .nav {
   	li {
   		a {
+	  		font-size: @tiny;
     		font-weight: 700;
   			letter-spacing: 1px;
   			color: @link;
 				border-radius: 30px;
-  			padding: 10px 20px;
+  			padding: 10px;
   			&:hover,
   			&:focus {
   				color: @brand-dk;
@@ -194,13 +205,9 @@ cite {
 
 @media(min-width:768px) {
   .navbar-default {
-  	background-color: rgba(255,255,255,0.88);
-  	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  	border-bottom: 1px solid #fff;
+
     padding: 16px 0 9px 0;
-    -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
+
     .navbar-brand {
     	background-size: 100% !important;
 	  	margin-top: 6px;
@@ -208,19 +215,47 @@ cite {
 		.navbar-nav>.active>a {
 			border-radius: 30px;
 		}
+	  .nav {
+	  	li {
+	  		a {
+					font-size: @small;
+	  			padding: 10px 12px;
+	  		}
+	  	}
+	  }
   }
   .navbar-default.navbar-shrink {
     padding: 6px 0 0 0;
 		.navbar-brand {
-    	background-size: 80% !important;
  	  	margin-top: 10px;
+ 	  	width: 150px;
     }
 	}
 }
 
+@media(min-width:980px) {
+  .navbar-default {
+	  .brand-tagline {
+		  display: block;
+		  font-size: @small;
+		  float: left;
+		  margin-top: 11px;
+	  }
+	  .nav {
+	  	li {
+	  		a {
+					font-size: @normal;
+	  			padding: 10px 14px;
+	  		}
+	  	}
+	  }
+  }
+}
+
 // hero
 header {
-	border-bottom: 2px solid @grey;
+	background-color: @grey-bg;
+	border-bottom: 2px solid @grey-lt;
   -webkit-animation: fadein 3s; /* Safari and Chrome */
 	-moz-animation: fadein 3s; /* Firefox */
 	-ms-animation: fadein 3s; /* Internet Explorer */
@@ -228,14 +263,20 @@ header {
 	animation: fadein 3s;
 
 	.carousel {
-		.slide-img {
+		.carousel-inner {
+			border-bottom: 2px solid @grey;
+		}
+		.item {
+			max-height: 440px;
+		}
+		img.slide-img {
 			width: 100%;
 		}
 		.carousel-control {
 			text-shadow: none;
 			color: @brand;
 			background: none;
-			top: 105px;
+			top: 47%;
 			bottom: auto;
 			width: 60px;
 			&:focus {
@@ -255,8 +296,6 @@ header {
 			font-family: @headline-font;
 			letter-spacing: 1px;
 			color: @brand;
-			background: rgba(255,255,255,0.85);
-			display: inline-block;
 		}
 		h2 {
 			font-family: @headline-font;
@@ -265,71 +304,19 @@ header {
 			font-weight: 400;
 			font-style: italic;
 			margin-bottom: 10px;
-			padding: 0px 8px 14px 8px;
+			padding: 0px 8px 10px 8px;
 		}
 		h3 {
 			font-size: 24px;
 			line-height: 30px;
 			color: @grey-dk;
 			margin: 0 0 20px 0;
-			padding: 0px 6px 6px 6px;
 		}
 	}
 	.btn-wrap {
 		margin-bottom: 20px;
 	}
-	ul.cta-list {
-		text-align: center;
-		li {
-			font-weight: bold;
-			color: @grey-dk;
-			display: inline-block;
-			padding: 0 3px;
-			background-color: rgba(255,255,255,0.8);
-			margin-right: 5px;
-		}
-	}
 }
-
-@media(min-width:768px) {
-	header {
-		.carousel {
-			.carousel-control {
-				top: 220px;
-			}
-		}
-	}
-}
-
-@media(min-width:980px) {
-	header {
-		.carousel {
-			.carousel-control { top: 245px; }
-		}
-		.intro-text {
-			position: absolute;
-			top: 170px;
-			text-align: left;
-			h2 {
-				font-size: 62px;
-				line-height: 74px;
-			}
-			h3 {
-				font-size: 30px;
-				line-height: 40px;
-			}
-		}
-		.btn-wrap {
-			float: left;
-		}
-		ul.cta-list {
-			text-align: left;
-			float: left;
-			margin: 20px 0 0 10px;
-		}
-	}
-}
-
 
 // Shared section styles
 section {
@@ -428,7 +415,7 @@ section#photo-examples {
 
 // Color range section
 section#color-range {
-	border-top: 2px solid @grey-lt;
+	border-top: none;
 	.row {
 		margin-top: 20px;
 		label {
@@ -532,7 +519,10 @@ section#color-range {
 
 // Contact Section
 section#contact {
-
+	ul.no-bullets.cta-quote {
+		font-size: @big;
+		.fa.fa-envelope-o { width: 35px; }
+	}
 }
 
 // Footer
