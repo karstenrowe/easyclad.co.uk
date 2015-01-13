@@ -2,6 +2,7 @@
 /* see humanstxt.org */
 
 /* TEAM */
-	Design & Development Lead: Karsten Rowe
+	Design & development lead: Karsten Rowe
+	Website: karstenrowe.com
 	Twitter: @karstenrowe
 	Location: Harrogate, U.K.
