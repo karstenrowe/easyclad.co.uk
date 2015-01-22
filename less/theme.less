@@ -38,6 +38,15 @@ em {
 	color: @grey-dk;
 	background: @brand-bg;
 }
+// Form styles
+input[type="text"],
+input[type="email"] {
+	border: 2px solid @brand-lt;
+	border-radius: 3px;
+	outline: none;
+	margin: 10px;
+	padding: 3px 6px;
+}
 // Links
 a,
 a:hover,
@@ -521,6 +530,22 @@ section#color-range {
 	}
 }
 
+// Email sign up section
+section#email-signup {
+	text-align: center;
+	background-color: @brand-bg;
+	border-bottom:  2px solid @grey-lt;
+	h2.section-heading {
+		margin: 6px 0 24px 0;
+	}
+	.btn-primary {
+		font-size: @small;
+		border-radius: 3px;
+		margin: 9px 0 0 0;
+		padding: 4px 16px;
+	}
+}
+
 // Contact Section
 section#contact {
 	ul.no-bullets.cta-quote {
@@ -569,6 +594,9 @@ footer {
 }
 
 .product-modal {
+	.modal-backdrop {
+		position: static; // Fix for modal not scrolling in Window
+	}
 	.modal-content {
     border-radius: 0;
     background-clip: border-box;
